@@ -1,0 +1,89 @@
+<h1>Daftar Manusia</h1>
+<span>Nama:</span> <input type="text" id="nama">
+<br>
+<br>
+<span>Umur:</span> <input type="text" id="umur">
+<br>
+<br>
+<span>Kelamin:</span> <input type="radio" name="kelamin" value="Pria"><span>Pria</span>
+<span>&nbsp;&nbsp;&nbsp;</span> <input type="radio" name="kelamin" value="Wanita"><span>Wanita</span>
+<br>
+<br>
+<span>Pekerjaan:</span> <input type="text" id="pekerjaan">
+<br>
+<br>
+<button type="button" onclick="submit()">Submit</button>
+<button type="button" onclick="sortBy(arr, 'nama')">Sort Nama</button>
+<button type="button" onclick="sortBy(arr, 'umur')">Sort Umur</button>
+<button type="button" onclick="sortBy(arr, 'kelamin')">Sort Kelamin</button>
+<button type="button" onclick="sortBy(arr, 'pekerjaan')">Sort Pekerjaan</button>
+<br>
+<br>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Nama</td>
+            <td>Umur</td>
+            <td>Kelamin</td>
+            <td>Pekerjaan</td>
+        </tr>
+    </thead>
+    <tbody id="renderHere">
+
+    </tbody>
+</table>
+
+<script>
+    let arr = []
+
+    function submit()
+    {
+        let checkRadios = document.getElementsByName('kelamin'),
+            nama = document.getElementById("nama").value,
+            umur = document.getElementById("umur").value,
+            kelamin = "",
+            pekerjaan = document.getElementById("pekerjaan").value
+
+        for (var i = 0, length = checkRadios.length; i < length; i++) {
+            if (checkRadios[i].checked) {
+                kelamin = checkRadios[i].value
+                break;
+            }
+        }
+        
+        if(nama == "" || umur == "" || kelamin == "" || pekerjaan == "")
+        {
+            alert('Mohon lengkapi data')
+        } else {
+            arr.push({
+                nama,
+                umur,
+                kelamin,
+                pekerjaan
+            })
+            
+            renderTable(arr)
+        }
+    }
+
+    function renderTable(arr) {
+        
+        document.getElementById('renderHere').innerHTML = ""
+        arr.map(v => {
+            document.getElementById('renderHere').innerHTML += `<tr><td>${v.nama}</td><td>${v.umur}</td><td>${v.kelamin}</td><td>${v.pekerjaan}</td></tr>`
+        })
+    }
+
+    function sortBy(arr, select) {
+        const result = [...arr];
+        result.map(
+            () => result.map( (_, key) => {
+                if(result[key][select] > result[key + 1]?.[select]) {
+                    [result[key], result[key + 1]] = [result[key + 1], result[key]]
+                }
+            })
+        )
+        renderTable(result)
+    }
+    
+</script>

@@ -1,0 +1,43 @@
+<h1>Jam Dunia</h1>
+<div id="render">
+
+</div>
+
+<script>
+    function calcTime(offset) {
+        d = new Date();
+        utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        nd = new Date(utc + (3600000*offset));
+        time = nd.toLocaleTimeString('id-ID', {
+            hour12: false
+        }).replace(".", ":").replace(".", ":");
+        
+        return `${time}`
+    }
+
+    function loopTimeZone()
+    {
+        let arr = []
+        for (let index = 0; index < 9; index++) {
+            arr.push({
+                time : calcTime(`+${index}`),
+                label : `GMT+${index}`
+            })
+            
+        }
+        renderList(arr)
+    }
+
+    function renderList(arr) {
+        document.getElementById('render').innerHTML = ""
+
+        arr.map(v => {
+            document.getElementById('render').innerHTML += `<p>${v.time} * ${v.label}</p>`
+        })
+
+        document.getElementById('render').innerHTML += '<p>Selisih antar zona waktu = 1 jam 1 menit 1 detik</p>'
+
+    }
+    setInterval(loopTimeZone, 1000);
+    
+</script>

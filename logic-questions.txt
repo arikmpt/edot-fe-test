@@ -1,0 +1,23 @@
+1. If a clock strikes once at 1 o′clock, twice at 2 o′clock and so on, How many times will it strike in a day?
+    => The Answers is 156  
+    => answer = (2 x (n/2)) x (a+L)
+    => answer = (2 x (12/2)) x (1+12)
+    => answer = 12 x 13
+    => answer is 156
+
+2. A snail is at the bottom of a 30 foot well. Every hour the snail is able to climb up 3 feet, then immediately slide back down 2 feet. How many hours does it take for the snail to get out of the well?
+    => The Answer is 28
+    => 1 hour is 1 feet, but after 27 feet, the snail only need 1 hour for 3 feet, because it reach on top already
+
+3. I live on Sunset Boulevard, where there are 6 houses on my side of the block. The
+house numbers are consecutive even numbers. The sum of all 6 house numbers is 8790. You don't know which block I live on, and it's a long street, but I will tell you that I live in the lowest number on my side of the block. What's my address?
+    => Find the average number first which is 8790 /  6  = 1465
+    => it's said the house numbers should be consecutive even numbers
+    => There must be 3 house numbers greater than that number, and 3 house numbers less than that number
+    => so the address is 1460
+
+4. A man needs to cross a river in a canoe. With him, he has a bag of grain, a chicken, and a fox. He can only carry one of the three at a time. If he leaves the grain and thechicken, the chicken will eat the grain. If he takes the grain, the fox will eat the chicken. How does he successfully cross the river with his load?
+    => The man and the chicken cross the river, (the fox and corn are safe together), he leaves the chicken on the other side and goes back across.
+    => The man then takes the fox across the river, and since he can't leave the fox and chicken together, he brings the chicken back.
+    => Again, since the chicken and corn can't be left together, he leaves the chicken and he takes the corn across and leaves it with the fox.
+    => He then returns to pick up the chicken and heads across the river one last time.

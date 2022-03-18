@@ -1,0 +1,72 @@
+<h1>Drawing Tools</h1>
+<p>1. Persegi</p>
+<p>2. Segitiga Siku2 Rata Kiri</p>
+<p>3. Segitiga Siku2 Rata Kanan</p>
+<br>
+<p>Jenis Bangunan</p>
+<input type="number" id="jenis" min="1">
+<br>
+<p>Ukuran</p>
+<input type="number" id="ukuran" min="1">
+<br>
+<br>
+<button type="button" onclick="execute()">Lihat</button>
+<br>
+<br>
+<div id="result">
+
+</div>
+<script>
+
+    function execute()
+    {
+        let type = document.getElementById("jenis").value
+        let size = document.getElementById("ukuran").value
+        switch (type) {
+            case '1':
+                return square(size)
+                break;
+            case '2':
+                return leftTriangle(size)
+                break;
+            case '3':
+                return rightTriangle(size)
+                break;
+            default:
+                document.getElementById('result').innerHTML = "Invalid Type"
+                break;
+        }
+        
+    }
+    
+    function square(n) {
+        let print = ""
+        for (let index = 0; index < n; index++) {
+            print += `${'* '.repeat(n)}<br>`
+        }
+        document.getElementById('result').innerHTML = print
+    }
+
+    function leftTriangle(n) {
+        let print = ""
+
+        for (let index = 1; index <= n; index++) {
+            print += `${'*'.repeat(index)}<br>`
+        }
+
+        document.getElementById('result').innerHTML = print
+    }
+
+    function rightTriangle(n) {
+        let print = ""
+
+        for (let index = n; index >= 1; index--) {
+            let b = n - index 
+            if(b !== 0) {
+                print += `${'&nbsp;&nbsp;'.repeat(index)}`
+                print += `${'*'.repeat(n - index)}<br>`
+            }
+        }
+        document.getElementById('result').innerHTML = print
+    }
+</script>
